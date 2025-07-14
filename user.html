@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche utilisateur</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .user-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 48px;
+        }
+        .user-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .user-info {
+            background: #f1f5fa;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 32px;
+        }
+        .user-info h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            color: #2d3748;
+        }
+        .user-info p {
+            margin: 10px 0;
+            font-size: 1.15rem;
+        }
+        .back-btn {
+            margin-top: 32px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.15rem;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-container">
+        <header class="user-header">
+            <h1>Fiche utilisateur</h1>
+        </header>
+        <main>
+            <div id="userInfo" class="user-info"></div>
+            <button class="back-btn" onclick="window.history.back()">Retour</button>
+        </main>
+    </div>
+    <script type="module" src="user.js"></script>
+</body>
+</html>

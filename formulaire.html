@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscription – La Ruche Tozeur</title>
+    <link rel="stylesheet" href="stylesf.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <img class="logo" src="public\la-ruche-logo-clean.png" alt="Logo La Ruche Tozeur">
+
+        <h2>Inscription </h2>
+
+        <form id="registrationForm" action="formulaire.php" method="post">
+            <label for="identifiant">Identifiant : 1er letter de nom et prenom + N° de téléphone
+                <input type="text" id="identifiant" name="identifiant" placeholder="Ex : AB0600000000"
+                    pattern="[A-Za-z]{2}[0-9]+" required>
+            </label>
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="tel" name="telephone" placeholder="Téléphone" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <label for="date_naissance">Date de naissance
+                <input type="date" name="date_naissance" required>
+            </label>
+            <div class="form-group">
+                <label for="gouvernorat">Gouvernorat</label>
+                <select id="gouvernorat" name="gouvernorat" required>
+                    <option value="">-- Sélectionnez un gouvernorat --</option>
+                    <option value="Ariana">Ariana</option>
+                    <option value="Beja">Béja</option>
+                    <option value="Ben Arous">Ben Arous</option>
+                    <option value="Bizerte">Bizerte</option>
+                    <option value="Gabes">Gabès</option>
+                    <option value="Gafsa">Gafsa</option>
+                    <option value="Jendouba">Jendouba</option>
+                    <option value="Kairouan">Kairouan</option>
+                    <option value="Kasserine">Kasserine</option>
+                    <option value="Kebili">Kébili</option>
+                    <option value="Kef">Kef</option>
+                    <option value="Mahdia">Mahdia</option>
+                    <option value="Manouba">Manouba</option>
+                    <option value="Medenine">Médenine</option>
+                    <option value="Monastir">Monastir</option>
+                    <option value="Nabeul">Nabeul</option>
+                    <option value="Sfax">Sfax</option>
+                    <option value="Sidi Bouzid">Sidi Bouzid</option>
+                    <option value="Siliana">Siliana</option>
+                    <option value="Sousse">Sousse</option>
+                    <option value="Tataouine">Tataouine</option>
+                    <option value="Tozeur">Tozeur</option>
+                    <option value="Tunis">Tunis</option>
+                    <option value="Zaghouan">Zaghouan</option>
+                </select>
+            </div>
+
+            <!-- Délégation -->
+            <div class="form-group">
+                <label for="delegation">Délégation</label>
+                <select id="delegation" name="delegation" required>
+                    <option value="">-- Sélectionnez un gouvernorat d'abord --</option>
+                </select>
+            </div>
+
+            <label for="niveau_etude">Niveau d'étude</label>
+            <select id="niveau_etude" name="niveau_etude" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="primaire">Primaire</option>
+                <option value="secondaire">Secondaire</option>
+                <option value="universitaire">Universitaire</option>
+                <option value="formation professionnelle">Formation professionnelle</option>
+                <option value="autre">Autre</option>
+            </select>
+            <label for="profession">Profession</label>
+            <select id="profession" name="profession" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="enseignant">Enseignant</option>
+                <option value="étudiant">Étudiant</option>
+                <option value="artisan">Artisan</option>
+                <option value="agriculteur">Agriculteur</option>
+                <option value="autre">Autre</option>
+            </select>
+            <label for="cadre_contact">Cadre de contact de l'association</label>
+            <select id="cadre_contact" name="cadre_contact" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="demande appui technique">Demande d'appui technique (à préciser)</option>
+                <option value="demande appui financier">Demande d'appui financier (à préciser)</option>
+                <option value="demande information">Demande d'information (à préciser)</option>
+                <option value="demande participation action">Demande participation à une action (à préciser)</option>
+                <option value="demande adhesion">Demande d'adhésion</option>
+                <option value="demande stage">Demande de stage</option>
+                <option value="demande service civique">Demande de service civique</option>
+                <option value="demande document">Demande de document (à préciser)</option>
+                <option value="participation formation">Participation à une formation (à préciser)</option>
+                <option value="participation activite">Participation à une activité (à préciser)</option>
+                <option value="autre">Autre (à préciser)</option>
+            </select>
+            <input type="text" id="precisions" name="precisions" placeholder="À préciser (si nécessaire)">
+            <!-- Champ rôle supprimé -->
+            <label for="date_du_contact">Date du contact</label>
+            <input type="date" id="date_du_contact" name="date_du_contact" required>
+            <label for="date_du_contact_suivant">Date du contact suivant</label>
+            <input type="date" id="date_du_contact_suivant" name="date_du_contact_suivant" required>
+            <input type="text" name="agent" placeholder="Agent" required>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+    </div>
+    </form>
+  </div>
+
+  <script>
+    // Mapping gouvernorat → liste des délégations
+    const delegationsMap = {
+      "Ariana": [
+        "Ariana","Ettadhamen","Kalaat El Andalous",
+        "Mnihla","Raoued","Sidi Thabet","Soukra"
+      ],
+      "Beja": [
+        "Amdoun","Beja","Goubellat","Majaz al Bab",
+        "Nefza","Teboursouk","Testour","Thibar"
+      ],
+      "Ben Arous": [
+        "Ben Arous","Bou Mhel el-Bassatine","El Mourouj",
+        "Ezzahra","Fouchana","Hammam Chott","Hammam Lif",
+        "Mohamedia","Medina Jedida","Megrine","Mornag","Rades"
+      ],
+      "Bizerte": [
+        "Bizerte","Djoumine","El Alia","Ghar El Melh",
+        "Ghezala","Mateur","Menzel Bourguiba","Menzel Jemil",
+        "Ras Jebel","Sejenane","Tinja","Utica","Zarzouna"
+      ],
+      "Gabes": [
+        "Gabes","Ghannouch","Hamma","Mareth",
+        "Matmata","Menzel Habib","Metouia"
+      ],
+      "Gafsa": [
+        "Belkhir","Gafsa","Guetar","Ksar",
+        "Mdhila","Metlaoui","Oum Larais","Redeyef",
+        "Sened","Sidi Aich"
+      ],
+      "Jendouba": [
+        "Ain Draham","Bilta/Balta","Bou Salem","Fernana",
+        "Ghardimaou","Jendouba","Oued Melliz","Tabarka"
+      ],
+      "Kairouan": [
+        "Alaâ","Bouhajla","Chebika","Echrarda",
+        "Haffouz","Hajeb El Ayoun","Kairouan","Nasrallah",
+        "Oueslatia","Sbikha"
+      ],
+      "Kasserine": [
+        "Ayoun","Ezzouhour","Feriana","Foussana",
+        "Hassi El Ferid","Hidra","Jedelienne","Kasserine",
+        "Magel Bel Abbes","Sbeitla","Sbiba","Thala"
+      ],
+      "Kebili": [
+        "Douz North","Douz South","Faouar",
+        "Kebili North","Kebili South","Souk El Ahed"
+      ],
+      "Kef": [
+        "Dahmani","Es Sers","Jerissa","Kalaa Khasbat",
+        "Kalaat Senane","Kef East","Kef West","Ksour",
+        "Nebeur","Sakiet Sidi Youssef","Tajerouine","Touiref"
+      ],
+      "Mahdia": [
+        "Chebba","Chorbane","El Djem","Hbira",
+        "Ksour Essef","Mahdia","Melloulech","Ouled Chamekh",
+        "Sidi Alouane","Souassi"
+      ],
+      "Manouba": [
+        "Borj El Amri","Douar Hicher","El Battan","Jedaida",
+        "Manouba","Mornaguia","Oued Ellil","Tebourba"
+      ],
+      "Medenine": [
+        "Ben Gardane","Beni Khedache","Djerba Ajim",
+        "Djerba Midoun","Djerba Houmt Souk","Medenine North",
+        "Medenine South","Sidi Makhlouf","Zarzis"
+      ],
+      "Monastir": [
+        "Bekalta","Bembla","Beni Hassen","Jammel",
+        "Ksar Hellal","Ksibet El Mediouni","Moknine","Monastir",
+        "Ouerdanine","Sahline","Sayada-Lamta-Bou Hjar",
+        "Teboulba","Zeramdine"
+      ],
+      "Nabeul": [
+        "Beni Khalled","Beni Khiar","Bou Argoub",
+        "Dar Chaabane El Fehri","El Mida","Grombalia",
+        "Hammam Ghezaz","Hammamet","Haouaria",
+        "Kelibia","Korba","Menzel Bouzelfa","Menzel Temime",
+        "Nabeul","Soliman","Takelsa"
+      ],
+      "Sfax": [
+        "Agareb","Bir Ali Ben Khelifa","El Amra",
+        "El Ghraiba","Hencha","Jebeniana","Kerkennah",
+        "Mahres","Menzel Chaker","Sakiet Eddaier",
+        "Sakiet Ezzit","Sfax Medina","Sfax West",
+        "Sfax South","Skhira","Thyna"
+      ],
+      "Sidi Bouzid": [
+        "Bir El Hfay","Jelma","Mazzouna","Meknassi",
+        "Menzel Bouzaiene","Ouled Haffouz","Regueb",
+        "Sabalat Ouled Asker","Sidi Ali Ben Aoun",
+        "Sidi Bouzid East","Sidi Bouzid West","Souk Jedid"
+      ],
+      "Siliana": [
+        "Bargou","Bouarada","El Aroussa","El Krib",
+        "Gaafour","Kesra","Makthar","Rouhia",
+        "Sidi Bourouis","Siliana North","Siliana South"
+      ],
+      "Sousse": [
+        "Akouda","Bouficha","Enfidha","Hammam Sousse",
+        "Hergla","Kalaa Kebira","Kalaa Sghira","Kondar",
+        "M'Saken","Sidi Bou Ali","Sidi El Heni","Sousse Jaouhara",
+        "Sousse Medina","Sousse Riadh","Sousse Sidi Abdelhamid",
+        "Zaouiet Ksibet Thrayet"
+      ],
+      "Tataouine": [
+        "Bir Lahmar","Dhiba","Ghomrassen","Remada",
+        "Smar","Tataouine"
+      ],
+      "Tozeur": [
+        "Degueche","Hazoua","Nefta","Tameghza","Tozeur"
+      ],
+      "Tunis": [
+        "Bab Bhar","Bab Souika","Carthage","Djebel Djelloud",
+        "El Haraïria","El Khadra City","El Kabaria","El Menzah",
+        "El Omrane","El Omrane Supérieur","El Ouardia",
+        "Ettahrir","Ezzouhour","La Goulette","La Marsa",
+        "Le Bardo","Le Kram","Medina","Sidi El Béchir",
+        "Sidi Hassine","Sijoumi"
+      ],
+      "Zaghouan": [
+        "Bir Mchergua","Fahs","Nadhour","Saouaf",
+        "Zaghouan","Zriba"
+      ]
+    };
+
+    // Lorsqu'on change de gouvernorat, on met à jour les options
+    document.getElementById('gouvernorat')
+      .addEventListener('change', function() {
+        const gov   = this.value;
+        const delEl = document.getElementById('delegation');
+        // Vide l'ancien contenu
+        delEl.innerHTML = '<option value="">-- Sélectionnez une délégation --</option>';
+        // Ajoute les nouvelles options
+        (delegationsMap[gov] || []).forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d;
+          opt.text  = d;
+          delEl.appendChild(opt);
+        });
+      });
+  </script>
+
+            
+
+         
+  
+
+
+
+
+           
+    <script src="script.js"></script>
+</body>
+
+</html>

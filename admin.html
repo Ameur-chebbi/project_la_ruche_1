@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - La Ruche Tozeur</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    .admin-container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.06);
+      padding: 36px;
+    }
+
+    .admin-header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #1e3a8a;
+    }
+
+    .search-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 30px;
+      background: #f3f6fa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .search-bar select,
+    .search-bar input[type="text"] {
+      flex: 1;
+      min-width: 180px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+
+    .search-bar select:focus,
+    .search-bar input:focus {
+      border: 1.5px solid #2563eb;
+      outline: none;
+    }
+
+    .search-bar button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    .search-bar button:hover {
+      background: #1d4ed8;
+    }
+
+    #userList {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    #userList li {
+      background: #f7f7f7;
+      margin-bottom: 10px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    #userList li:hover {
+      background: #e0e7ff;
+    }
+
+    #userDetails {
+      background: #f1f5fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      padding: 24px;
+      margin-top: 20px;
+      animation: fadeIn 0.3s;
+      display: none;
+      position: relative;
+    }
+
+    #userDetails h2 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
+      color: #1e3a8a;
+    }
+
+    #userDetails p {
+      margin: 6px 0;
+      font-size: 1rem;
+    }
+
+    #userDetails button {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #userDetails button:hover {
+      background: #dc2626;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 600px) {
+      .search-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+      }
+
+      .search-bar select,
+      .search-bar input,
+      .search-bar button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <h1>Recherche - Informations</h1>
+    </header>
+    <main>
+      <div class="search-bar">
+        <select id="searchType">
+          <option value="nom">Nom</option>
+          <option value="gouvernorat">Gouvernorat</option>
+          <option value="cadre_contact">Cadre de contact</option>
+          <option value="profession">Profession</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Rechercher..." />
+        <select id="searchGouvernorat" style="display: none;">
+          <option value="">-- Sélectionnez un gouvernorat --</option>
+          <option value="Ariana">Ariana</option>
+          <option value="Beja">Béja</option>
+          <option value="Ben Arous">Ben Arous</option>
+          <option value="Bizerte">Bizerte</option>
+          <option value="Gabes">Gabès</option>
+          <option value="Gafsa">Gafsa</option>
+          <option value="Jendouba">Jendouba</option>
+          <option value="Kairouan">Kairouan</option>
+          <option value="Kasserine">Kasserine</option>
+          <option value="Kebili">Kébili</option>
+          <option value="Kef">Kef</option>
+          <option value="Mahdia">Mahdia</option>
+          <option value="Manouba">Manouba</option>
+          <option value="Medenine">Médenine</option>
+          <option value="Monastir">Monastir</option>
+          <option value="Nabeul">Nabeul</option>
+          <option value="Sfax">Sfax</option>
+          <option value="Sidi Bouzid">Sidi Bouzid</option>
+          <option value="Siliana">Siliana</option>
+          <option value="Sousse">Sousse</option>
+          <option value="Tataouine">Tataouine</option>
+          <option value="Tozeur">Tozeur</option>
+          <option value="Tunis">Tunis</option>
+          <option value="Zaghouan">Zaghouan</option>
+        </select>
+        <select id="searchCadreContact" style="display: none;">
+          <option value="">-- Sélectionnez --</option>
+          <option value="demande appui technique">Demande d'appui technique</option>
+          <option value="demande appui financier">Demande d'appui financier</option>
+          <option value="demande information">Demande d'information</option>
+          <option value="demande participation action">Demande participation à une action</option>
+          <option value="demande adhesion">Demande d'adhésion</option>
+          <option value="demande stage">Demande de stage</option>
+          <option value="demande service civique">Demande de service civique</option>
+          <option value="demande document">Demande de document</option>
+          <option value="participation formation">Participation à une formation</option>
+          <option value="participation activite">Participation à une activité</option>
+          <option value="autre">Autre</option>
+        </select>
+        <select id="searchProfession" style="display: none;">
+          <option value="">-- Sélectionnez --</option>
+          <option value="enseignant">Enseignant</option>
+          <option value="étudiant">Étudiant</option>
+          <option value="artisan">Artisan</option>
+          <option value="agriculteur">Agriculteur</option>
+          <option value="autre">Autre</option>
+        </select>
+        <button id="searchBtn">Rechercher</button>
+      </div>
+      <ul id="userList"></ul>
+      <div id="userDetails"></div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 La Ruche Tozeur. Tous droits réservés.</p>
+    </footer>
+  </div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

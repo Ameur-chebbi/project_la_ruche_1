@@ -1,0 +1,80 @@
+/* ---------- GLOBAL ---------- */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e2fcd9, #fff7ce);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+}
+
+/* ---------- LOGIN PAGE ---------- */
+
+.login-container {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.login-container h2 {
+  color: #1d4f2b;
+  margin-bottom: 20px;
+}
+
+.login-container input,
+.login-container select,
+.login-container button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.login-container input,
+.login-container select {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.login-container button {
+  background-color: #fcb900;
+  color: #1d4f2b;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #ffdd57;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #1d4f2b;
+}
